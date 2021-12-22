@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="~/css/styles.css">
 </head>
 <body>
-  @RenderBody()
-  <p>@Html.ActionLink("Show all Cuisines", "Index", "Cuisines")</p>
-  <p>@Html.ActionLink("Show all Restaurants", "Index", "Restaurants")</p>
+  <div class="container">
+    @RenderBody()
+    <p>@Html.ActionLink("Show all Cuisines", "Index", "Cuisines")</p>
+    <p>@Html.ActionLink("Show all Restaurants", "Index", "Restaurants")</p>
+  </div>
 </body>
 </html>

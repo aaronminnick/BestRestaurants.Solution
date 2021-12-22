@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Restaurant
+
+<h2>Edit</h2>
+
+<h4>Edit this Restaurant: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.RestaurantId)
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  @Html.LabelFor(model => model.CuisineId, "Type of Cuisine")
+  @Html.DropDownList("CuisineId") //TODO: Fix so it properly selects the existing cuisine
+  @Html.LabelFor(model => model.Price)
+  <input type = "number" name="Price" id="Price" min="1" max="5" step="1" value="@Model.Price">
+  @Html.LabelFor(model => model.Rating)
+  <input type = "number" name="Rating" id="Rating" min="1" max="5" step="1" value="@Model.Rating">
+  @Html.LabelFor(model => model.Location)
+  @Html.EditorFor(model => model.Location)
+  <input type="submit" value="Save" />
+}

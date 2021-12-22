@@ -76,7 +76,7 @@ namespace BestRestaurants.Controllers
       List<Restaurant> reassigns = (from restaurant in _db.Restaurants where restaurant.CuisineId == id select restaurant).ToList();
       foreach(Restaurant restaurant in reassigns)
       {
-        restaurant.CuisineId = 0;
+        restaurant.CuisineId = 1;
         _db.Entry(restaurant).State = EntityState.Modified;
       }
       _db.SaveChanges();
