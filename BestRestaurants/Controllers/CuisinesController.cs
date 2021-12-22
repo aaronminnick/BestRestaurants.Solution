@@ -13,11 +13,11 @@ namespace BestRestaurants.Controllers
     public CuisinesController(BestRestaurantsContext db)
     {
       _db = db;
-      if ((_db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == 0)) == null)
+      if ((_db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == 1)) == null)
       {
         Cuisine uncategorized = new Cuisine();
         uncategorized.Name = "Uncategorized";
-        uncategorized.CuisineId = 0;
+        uncategorized.CuisineId = 1;
         _db.Cuisines.Add(uncategorized);
         _db.SaveChanges();
       }
@@ -82,5 +82,5 @@ namespace BestRestaurants.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-  }    
+  }
 }

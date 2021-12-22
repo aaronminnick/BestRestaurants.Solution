@@ -1,0 +1,14 @@
+@using BestRestaurants.Models;
+
+@{
+  Layout = "Layout";
+}
+
+@model BestRestaurants.Models.Cuisine;
+
+<h4>Restaurants in category @Model.Name:</h4>
+@foreach (Restaurant restaurant in Model.Restaurants)
+{
+  
+}
+
