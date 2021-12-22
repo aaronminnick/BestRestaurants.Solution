@@ -1,0 +1,15 @@
+@using BestRestaurants.Models;
+
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Restaurant;
+
+<h4>@Model.Name</h4>
+<p>Type of Cuisine: @ViewBag.CuisineName</p>
+<p>@Html.DisplayNameFor(model => model.Price): @Model.Price/5 @Html.DisplayNameFor(model => model.Rating): @Model.Rating/5</p>
+<p>@Html.DisplayNameFor(model => model.Location): @Model.Location</p>
+
+<p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId})</p>
+<p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId})</p>
