@@ -46,8 +46,20 @@ namespace BestRestaurants.Controllers
     public ActionResult Edit(int id)
     {
       Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
-      ViewBag.CuisineName = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == thisRestaurant.CuisineId).Name;
+      // create list
+      ViewBag.ListCuisines = new List<SelectListItem> {};
+      List<Cuisine> cuisines = _db.Cuisines.ToList();
+      foreach (Cuisine cuisine in cuisines)
+      {
+        if (cuisine.CuisineId == thisRestaurant.CuisineId)
+        {
+          ViewBag.ListCuisines.Add(new SelectListItem{Text = $"{cuisine.Name}", Value = $"{cuisine.CuisineId}", Selected = true});
+        }
+        else
+        {
+          ViewBag.ListCuisines.Add(new SelectListItem{Text = $"{cuisine.Name}", Value = $"{cuisine.CuisineId}"});
+        }
+      }
       return View(thisRestaurant);
     }
 
